@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My First Git + VS Code Page</title>
+  <meta name="description" content="Practice page for learning Git & GitHub with VS Code" />
+  <style>
+    :root {
+      --bg: #0f172a;      /* slate-900 */
+      --card: #111827;    /* gray-900 */
+      --text: #e5e7eb;    /* gray-200 */
+      --muted: #9ca3af;   /* gray-400 */
+      --brand: #6366f1;   /* indigo-500 */
+      --brand-2: #a78bfa; /* violet-400 */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 500px at 80% -10%, #1f2937 0%, var(--bg) 60%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px clamp(16px, 4vw, 32px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex; gap: 10px; align-items: center; font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .logo-badge {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      display: grid; place-items: center; color: white; font-size: 14px;
+      box-shadow: 0 8px 24px rgba(99,102,241,.35);
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 16px;
+      font-size: 14px;
+    }
+    nav a:hover { color: var(--text); }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px clamp(16px, 4vw, 32px) 64px;
+      display: grid;
+      gap: 28px;
+    }
+    .hero {
+      background: linear-gradient(180deg, rgba(99,102,241,.12), rgba(167,139,250,.10));
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 18px;
+      padding: clamp(20px, 5vw, 40px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 20px 40px rgba(2,6,23,.5);
+    }
+    .title {
+      margin: 0 0 6px;
+      font-size: clamp(24px, 5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: clamp(14px, 2.5vw, 16px);
+    }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      appearance: none; border: 0; cursor: pointer;
+      padding: 12px 18px; border-radius: 12px;
+      font-weight: 600; font-size: 14px;
+      transition: transform .06s ease, box-shadow .2s ease, opacity .2s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: white; box-shadow: 0 10px 28px rgba(99,102,241,.35);
+    }
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-ghost {
+      background: rgba(255,255,255,.06);
+      color: var(--text); border: 1px solid rgba(255,255,255,.08);
+    }
+    .grid {
+      display: grid; grid-template-columns: repeat(12, 1fr);
+      gap: 16px; align-items: stretch;
+    }
+    .card {
+      grid-column: span 12;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 10px 28px rgba(2,6,23,.5);
+    }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    @media (min-width: 768px) {
+      .card { grid-column: span 4; }
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px clamp(16px, 4vw, 32px) 40px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+
+    /* tiny “live” widget styles */
+    .counter {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 12px; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04);
+      margin-top: 10px;
+      user-select: none;
+    }
+    .pill {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      background: rgba(99,102,241,.15); color: #c7d2fe; font-size: 12px; font-weight: 700;
+      border: 1px solid rgba(99,102,241,.35);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="logo-badge">G</span>
+      <span>Git + VS Code Demo</span>
+    </div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#counter">Counter</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="title">Hello, GitHub 👋</h1>
+      <p class="subtitle">Edit this file in VS Code → commit → push to GitHub → open a Pull Request. Perfect for learning branch, push, pull, and merge.</p>
+      <div class="actions">
+        <button class="btn btn-primary" id="cta">Click Me</button>
+        <button class="btn btn-ghost" id="reset">Reset</button>
+      </div>
+      <div id="counter" class="counter" aria-live="polite">
+        <span class="pill" id="count">0</span>
+        <span>Clicks recorded (try me!)</span>
+      </div>
+    </section>
+
+    <section id="features" class="grid" aria-label="Features">
+      <article class="card">
+        <h3>1) Edit & Commit</h3>
+        <p>Make a change → <code>git add .</code> → <code>git commit -m "update"</code>.</p>
+      </article>
+      <article class="card">
+        <h3>2) Branch</h3>
+        <p>Create a branch: <code>git switch -c feature-ui</code> then push: <code>git push -u origin feature-ui</code>.</p>
+      </article>
+      <article class="card">
+        <h3>3) PR & Merge</h3>
+        <p>Open a Pull Request on GitHub → request review → merge to <code>main</code>.</p>
+      </article>
+    </section>
+
+    <section id="about" class="card">
+      <h3>About this Page</h3>
+      <p>This single HTML file is intentionally simple but stylish. Use it as your practice project while you learn Git workflows in VS Code.</p>
+    </section>
+  </main>
+
+  <footer>
+    Made with ♥ while learning Git. Try changing the title text and pushing again!
+  </footer>
+
+  <script>
+    // Minimal JS so you can test edits easily
+    const countEl = document.getElementById('count');
+    const cta = document.getElementById('cta');
+    const reset = document.getElementById('reset');
+    let clicks = 0;
+
+    function render() { countEl.textContent = String(clicks); }
+    cta.addEventListener('click', () => { clicks++; render(); });
+    reset.addEventListener('click', () => { clicks = 0; render(); });
+    render();
+  </script>
+</body>
+</html>
