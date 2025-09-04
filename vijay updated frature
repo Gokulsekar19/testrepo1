@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My First Git + VS Code Page</title>
+  <meta name="description" content="Practice page for learning Git & GitHub with VS Code" />
+  <style>
+    /* Same theme colors as before */
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --brand: #6366f1;
+      --brand-2: #a78bfa;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(1200px 500px at 80% -10%, #1f2937 0%, var(--bg) 60%);
+      color: var(--text);
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px clamp(16px, 4vw, 32px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-weight: 700;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .logo-badge {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      display: grid; place-items: center; color: white;
+    }
+    nav a {
+      margin-left: 16px; color: var(--muted); text-decoration: none;
+    }
+    nav a:hover { color: var(--text); }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px clamp(16px, 4vw, 32px) 64px;
+      display: grid; gap: 28px;
+    }
+    .hero {
+      background: linear-gradient(180deg, rgba(99,102,241,.12), rgba(167,139,250,.10));
+      border: 1px solid rgba(99,102,241,.25);
+      border-radius: 18px;
+      padding: clamp(20px, 5vw, 40px);
+      text-align: center;
+    }
+    .title {
+      font-size: clamp(26px, 5vw, 42px);
+      font-weight: 800;
+      margin: 0 0 10px;
+      color: var(--brand-2); /* 🔹 changed title color */
+    }
+    .subtitle {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      border: 0; padding: 12px 18px; border-radius: 12px;
+      font-weight: 600; cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: white;
+    }
+    .btn-ghost {
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    /* New section style */
+    .updates {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .updates h3 { margin-top: 0; color: var(--brand); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="logo-badge">G</span>
+      <span>Git + VS Code Demo</span>
+    </div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#updates">Updates</a> <!-- 🔹 new nav link -->
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <!-- 🔹 changed heading text -->
+      <h1 class="title">🚀 Learning Git the Fun Way!</h1>
+      <p class="subtitle">Now with real-time updates from teammates ✨</p>
+      <div class="actions">
+        <button class="btn btn-primary" id="cta">Click Me</button>
+        <button class="btn btn-ghost" id="reset">Reset</button>
+      </div>
+      <div id="counter" class="counter">
+        <span id="count">0</span> Clicks so far
+      </div>
+    </section>
+
+    <!-- 🔹 New updates section -->
+    <section id="updates" class="updates">
+      <h3>Team Updates</h3>
+      <p>This section was added by another contributor to test branching and merging in GitHub.</p>
+    </section>
+
+    <section id="about" class="updates">
+      <h3>About this Page</h3>
+      <p>This HTML file is now being collaboratively edited. Perfect for practicing <strong>branching, pushing, and merging</strong>.</p>
+    </section>
+  </main>
+
+  <footer>
+    Made with ♥ while learning Git + VS Code. (Updated by another user)
+  </footer>
+
+  <script>
+    // Counter logic
+    const countEl = document.getElementById('count');
+    const cta = document.getElementById('cta');
+    const reset = document.getElementById('reset');
+    let clicks = 0;
+    function render() { countEl.textContent = clicks; }
+    cta.addEventListener('click', () => { clicks++; render(); });
+    reset.addEventListener('click', () => { clicks = 0; render(); });
+    render();
+  </script>
+</body>
+</html>
